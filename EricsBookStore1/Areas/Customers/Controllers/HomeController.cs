@@ -1,4 +1,4 @@
-﻿using EricsBookStore1.Models;
+﻿using EricsBookStore1.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,8 +7,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EricsBookStore1.Controllers
+namespace EricsBookStore1.Area.Customers.Controllers
 {
+    [Area("Customers")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
