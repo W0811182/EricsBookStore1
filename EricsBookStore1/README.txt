@@ -104,3 +104,37 @@ running app once again
 
 --0200--
 Adding new admin area
+
+
+PART 2
+2023-11-06
+--1815--
+preparing for next set of instructions by building the solution
+all builds successful (4/4) moving on to first instructions
+Reviewing appsettings.json 
+aspnet-EricsBookStore1-9B12F544-14AC-40F2-9816-F0C978BA99A3 <- default db in apsetting.json-
+changing db to = EricsBookStore
+
+adding migration with PMC with the name "AddDefaultIdentityMigration"
+target proj doesnt match migration assembly error - must hange migration assembly in Startup.cs
+Changed default project in the PMC to .DataAccess proj and added migration again successfully
+
+--1926--
+updated database successfully in the PMC 'update-database'
+checked the sql server object explorer to verify the correct fies were added 
+checking for errors and running project
+successful test run
+
+--1935--
+created a new category model and migrated with db in the PMC console migration name: "AddCategoryToDb"
+
+--1943--
+updating new context file from category.cs Migration 'AddCategoryToDb'
+Adding a new migration with the added part to the applicationdbcontext
+deleted previous AddCategoryToDb and updated database - regenerating migration
+
+--2002--
+regenerated migration file AddCategoryToDb and updated database
+confirming Category table in sql SOE and commiting to github
+
+
