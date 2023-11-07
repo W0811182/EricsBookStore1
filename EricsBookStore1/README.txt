@@ -159,3 +159,13 @@ modifiying ICategoryRepository interface
 Finished modifying CategoryRepository now going to build, fix any errors and push to github
 2 succeeded build 2 up to date
 test run successful - no errors - uploading to github
+
+--2115--
+created ISP_Call and SP_Call interface and class and put them in their respective folders
+implemented interface
+gave SP_Call methods functionality
+
+--2135--
+Created IUnitOfWork and UnitOfWork in their respective folders
+edited both files
+adding register in UnitOfWork to Startup.cs in the ConfigureServices methods
