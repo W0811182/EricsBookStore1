@@ -137,4 +137,25 @@ deleted previous AddCategoryToDb and updated database - regenerating migration
 regenerated migration file AddCategoryToDb and updated database
 confirming Category table in sql SOE and commiting to github
 
+--2014--
+added folder to DataAccess proj "Repository" and to Repository I added an "IRepository" folder
+added an interface called "IRepository" to the folder of the same name
+changed projc files of DataAccess to include new Folders added
+altering IRepository.cs to do CRUD ops for Category class
 
+--2020--
+altered IRepository.cs and now implementing 
+creating file Repository.cs to Repository folder
+Implemented interface in Repository.cs
+modifying code to create constructs and dependency Injection
+
+--2050--
+created two new files ICategoryRepository.cs and CategoryRepository in their respective folders
+created interface within ICategoryRepository
+modifying CategoryRepository file
+modifiying ICategoryRepository interface
+
+--2059--
+Finished modifying CategoryRepository now going to build, fix any errors and push to github
+2 succeeded build 2 up to date
+test run successful - no errors - uploading to github
