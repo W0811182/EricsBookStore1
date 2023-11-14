@@ -68,6 +68,11 @@ namespace EricsBookStore1
                     name: "areas",
                     pattern: "{area=Customers}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
+                endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area=Admin}/{controller=Category}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

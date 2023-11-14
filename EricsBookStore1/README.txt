@@ -169,3 +169,17 @@ gave SP_Call methods functionality
 Created IUnitOfWork and UnitOfWork in their respective folders
 edited both files
 adding register in UnitOfWork to Startup.cs in the ConfigureServices methods
+
+2023-11-13
+--1801--
+starting part 2.3
+closing all open tabs
+adding new 'CategoryController.cs' to Areas>Admin>Controllers
+altering CategoryController.cs to use IUnitOfWork
+adding Category folder to Areas>Views
+adding new Razor view to the Category folder
+replacing contents with assignment files
+saving and running application
+
+--2053--
+moved Category link into example dropdown created in part 1
