@@ -183,3 +183,32 @@ saving and running application
 
 --2053--
 moved Category link into example dropdown created in part 1
+modifying index.cshtml in category to add the icons from font awesome
+cutting added lines from last step and adding to javascript file provided
+placed javascript file in wwwroot/js
+added section to call and run javascript file in index.cshtml
+
+--2109--
+added IActionResult to Category Controller
+Created Upsert View and added provided lines to it
+created partial view _CreateAndBackToListButtons.cshtml in shared under views
+modifying Upsert.cshtml to add model
+adding asp-action to index.cshtml
+Modifying Upsert.cshtml to include title var as title
+added ssection call at the bottom of Upsert to validate input
+
+--0103--
+creating Upsert POST action method in categoryController.cs
+adding void Save method to IUnitOfWork
+removing _db.SaveChanges() method from CategoryRepository.cs
+
+--0130--
+After Test running I can successfully create and update category names
+now adding API call for HTTPDelete in categoryController
+implementing HTTPDelete with delete method inside category.js
+added onclick event
+now creating delete(url) function at the bottom of category.js
+
+--0200--
+Test running and checking for delete functionality working properly
+Test run successful deleting categories functional

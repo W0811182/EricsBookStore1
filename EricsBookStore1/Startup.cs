@@ -70,7 +70,7 @@ namespace EricsBookStore1
                 endpoints.MapRazorPages();
 
                 endpoints.MapControllerRoute(
-                    name: "areas",
+                    name: "adminCategory",
                     pattern: "{area=Admin}/{controller=Category}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
