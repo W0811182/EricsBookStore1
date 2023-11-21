@@ -254,4 +254,22 @@ adding Product Interface now
 adding reference to Product in IUnitOfWork and UnitOfWork
 test running
 test run successful
-commmiting to github
+commiting to github
+
+--2100--
+adding Controller for new Product model
+creating viewmodel in viewmodels folder ProductVM
+downloading Microsoft.AspNetCore.Mvc.ViewFeatures package
+modifying ProductController (IActionResult calls to ProductVM)
+
+--2139--
+commenting out Upsert POST method and modifying API call to include the Category and CoverType Props
+adding index view from the controller
+Copying code from Category View and modified
+Copying code for Category.js and modifying for Product.js 
+changed references from category to product and altered the columns and column width.
+
+--2218--
+modifying _Layout.cshtml to add link to product
+creating Upsert file under Product and grabbing files from assignment folder
+adding new folder images/products in wwwroot
