@@ -212,3 +212,46 @@ now creating delete(url) function at the bottom of category.js
 --0200--
 Test running and checking for delete functionality working properly
 Test run successful deleting categories functional
+
+2023-11-19
+--2343--
+cleaning, building and test running solution before moving on with adding the cover type CRUD
+adding CoverType.cs Model to Models folder with an id and name getter and setter (copy paste category.cs code and change to fit)
+
+--2347--
+created CoverTypeRepository.cs and ICoverTypeRepository.cs
+added CoverType references to ApplicationDbContext and UnitOfWork files
+now creating database migration for CoverType in PMC
+added db migration: Add-Migration AddCoverTypeDb
+migration timestamp = 20231120052611
+Updating database and checking viewer to see if populated with new CoverType
+CoverType present in SOE Viewer
+
+--0031--
+now adding CoverType to NavBar inside of dropdown
+adding and creating CoverTypeController (identical to CategoryController in structure)
+
+--0055-- 
+Created covertype.js javascript file (Identical to Category js file)
+created Index and Upsert views in newly created CoverType Folder in Views (identical to Category views)
+test running
+
+--0121--
+created Product.cs in models project and populated with provided code
+adding reference to product in applicationDbContext
+adding migration for new Product db in PMC
+"Add-Migration addProductToDb"
+migration timestamp = "20231120062429"
+updating database and reviewing SOE for product
+Products table present in SOE
+
+--2035--
+Adding Product to Repository
+Forgot Description field in Produt model, adding and migrating now
+new migration "AddDescFieldToProductDb"
+migration timestamp = "20231121014831"
+adding Product Interface now
+adding reference to Product in IUnitOfWork and UnitOfWork
+test running
+test run successful
+commmiting to github
