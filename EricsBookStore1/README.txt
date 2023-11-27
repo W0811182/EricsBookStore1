@@ -273,3 +273,43 @@ changed references from category to product and altered the columns and column w
 modifying _Layout.cshtml to add link to product
 creating Upsert file under Product and grabbing files from assignment folder
 adding new folder images/products in wwwroot
+
+
+2023-11-26
+-2038-
+cleaning, building, test running Solution
+searching for bug related to navigating to Product Page
+
+--2149--
+Potentially found the reason for bug
+
+had public Category category { get; set; }
+
+switched to --> public Category Category { get; set; }
+
+creating migration for Product model update
+
+--2225-
+PMC: Add-Migration ProductModelUpdate
+20231127032741_ProductModelUpdate
+
+Runtime exception error on toList() methods seems to be fixed, Migration doesnt state any difference.
+new errors upon product creation
+
+DataTables warning: table id=tblData - 
+	Requested unknown parameter 'price' for row 0, column 2. 
+		For more information about this error, please see http://datatables.net/tn/4
+
+2023-11-27
+--1157--
+Found source of table get "bug" - Browser cache not updating with changes to js file
+Now Moving on to displaying movies on my index page.
+
+adding this line to my HomeController to display listed products on the home page.
+
+IEnumerable<Product> productlist = _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
+adding using statements in the home controller for access to IRepository file and models project
+added private readonly to use _unitOfWork
+instantiated unitOfWork in the public HomeController
+
+Going to alter my home index and see if my changes to the controller display my products

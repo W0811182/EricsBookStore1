@@ -1,4 +1,7 @@
-﻿using EricsBookStore1.Models.ViewModels;
+﻿using EricsBooks.DataAccess.Repository;
+using EricsBooks.DataAccess.Repository.IRepository;
+using EricsBooks.Models;
+using EricsBookStore1.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,15 +16,18 @@ namespace EricsBookStore1.Area.Customers.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
         {
             _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Product> productlist = _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
+            return View(productlist);
         }
 
         public IActionResult Privacy()

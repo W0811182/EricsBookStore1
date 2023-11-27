@@ -36,7 +36,7 @@ namespace EricsBookStore1
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
         }
 
@@ -67,11 +67,6 @@ namespace EricsBookStore1
                 endpoints.MapControllerRoute(
                     name: "areas",
                     pattern: "{area=Customers}/{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
-
-                endpoints.MapControllerRoute(
-                    name: "adminCategory",
-                    pattern: "{area=Admin}/{controller=Category}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

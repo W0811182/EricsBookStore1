@@ -20,19 +20,20 @@ namespace EricsBooks.DataAccess.Repository
         public void Update(Product product)
         {
             var objFromDb = _db.Products.FirstOrDefault(s => s.Id == product.Id);
-            if (product.ImageUrl != null)
+            if (objFromDb != null)
             {
-                objFromDb.ImageUrl = product.ImageUrl;
-            }
+                if (product.ImageUrl != null)
+                {
 
-            objFromDb.Title = product.Title;
-            objFromDb.Description = product.Description;
-            objFromDb.ISBN = product.ISBN;
-            objFromDb.Author = product.Author;
-            objFromDb.ListPrice = product.ListPrice;
-            objFromDb.CategoryId = product.CategoryId;
-            objFromDb.CoverTypeId = product.CoverTypeId;
+                }
+                objFromDb.Title = product.Title;
+                objFromDb.Description = product.Description;
+                objFromDb.ISBN = product.ISBN;
+                objFromDb.Author = product.Author;
+                objFromDb.ListPrice = product.ListPrice;
+                objFromDb.CategoryId = product.CategoryId;
+                objFromDb.CoverTypeId = product.CoverTypeId;
+            }
         }
     }
-
 }
