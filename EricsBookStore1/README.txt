@@ -302,14 +302,20 @@ DataTables warning: table id=tblData -
 
 2023-11-27
 --1157--
-Found source of table get "bug" - Browser cache not updating with changes to js file
+Found source of table get "bug" - Browser cache not updating with changes to js file.
 Now Moving on to displaying movies on my index page.
-
 adding this line to my HomeController to display listed products on the home page.
 
+--1200--
+Commiting to github.
 IEnumerable<Product> productlist = _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
 adding using statements in the home controller for access to IRepository file and models project
 added private readonly to use _unitOfWork
 instantiated unitOfWork in the public HomeController
 
 Going to alter my home index and see if my changes to the controller display my products
+products display minus the image going to investigate this.
+Can't figure out why images won't load, tried looking at the table to see if it was atleast populating with URLs but I don't know where to look for this
+SOE did not have what I needed seemingly
+
+Commiting and pushing to github
