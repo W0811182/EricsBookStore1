@@ -318,4 +318,112 @@ products display minus the image going to investigate this.
 Can't figure out why images won't load, tried looking at the table to see if it was atleast populating with URLs but I don't know where to look for this
 SOE did not have what I needed seemingly
 
+--1427--
 Commiting and pushing to github
+
+2023-12-05
+
+--0023--
+Cleaned, built, and test ran solution successfully
+
+Final tasks to complete
+	- Fix images not displaying (I am going to consult the BulkyBook Git Repo for this).
+	- Seed data for my books inserted into database(Assignment 1 has a seed data example I can look at).
+	- publish to Azure.
+
+--0039--
+Comparing my ProductController.cs to the BulkyBook product controller there is code or file paths that seems to relate to displaying images so I am going to insert it
+
+if (ModelState.IsValid)
+            {
+                string webRootPath = _hostEnvironment.WebRootPath;
+                var files = HttpContext.Request.Form.Files;
+                if (files.Count > 0)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(webRootPath, @"images\products");
+                    var extension = Path.GetExtension(files[0].FileName);
+
+                    if (productVM.Product.ImageUrl != null)
+                    {
+                        // this is an edit and we need to remove old image
+                        var imagePath = Path.Combine(webRootPath, productVM.Product.ImageUrl.TrimStart('\\'));
+                        if (System.IO.File.Exists(imagePath))
+                        {
+                            System.IO.File.Delete(imagePath);
+                        }
+                    }
+                    using(var filesStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    {
+                        files[0].CopyTo(filesStreams);
+                    }
+                    productVM.Product.ImageUrl = @"\images\products\" + fileName + extension;
+                }
+                else
+                {
+                    // update when they do not change the image
+                    if (productVM.Product.Id != 0)
+                    {
+                        Product objFromDb = _unitOfWork.Product.Get(productVM.Product.Id);
+                        productVM.Product.ImageUrl = objFromDb.ImageUrl;
+                    }
+                }
+
+                if (productVM.Product.Id == 0)
+                {
+                    _unitOfWork.Product.Add(productVM.Product);
+                }
+                else
+                {
+                    _unitOfWork.Product.Update(productVM.Product);
+                }
+                _unitOfWork.Save();
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                productVM.CategoryList = _unitOfWork.Category.GetAll().Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                });
+                productVM.CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                });
+                if (productVM.Product.Id != 0)
+                {
+                    productVM.Product = _unitOfWork.Product.Get(productVM.Product.Id);
+                }
+            }
+            return View(productVM);
+        }
+
+
+Altered copied BulkyBook Code
+    - Using System.IO
+
+    - -public IActionResult Upsert(Product product)
+
+    - +public IActionResult Upsert(ProductVM productVM)
+
+    - changed any references to images/products to images/Products with an uppercase
+
+--0136--
+test running to see if code shows images(unsuccessful)
+
+--0229-- 
+I still dont know why images wont show, I will try again for a little in the morning and then deploy to azure before class.
+
+2023-12-05
+
+--1255--
+attempting to fix images not showing issues
+
+--1332--
+
+couldnt figure out showing images or seed data(i love asp)
+
+couldnt figure out azure either(physically wont work in any capacity)
+
